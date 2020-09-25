@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.suek.ex74bluetoothtest">
+    <!-- 블루투스사용에 대한 퍼미션 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 마시멜로우 버전부터 주변장치 탐색할때 location 퍼미션이 필요함 : 동적퍼미션 -->
+    <!-- 서버는 필요없음. 클라이언트가 접속을 위해 주변장치를 찾을 때 필요 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">   <!-- usesCleartextTraffic="true" : 오레오 버전부터 서버로서 동작하려면 [http 통신]을 쓰기때문에 허용해야함 -->
+
+        <!--액티비티를 다이얼로그처럼 보이게..-->
+        <activity android:name=".BTListActivity" android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
+
+        <activity android:name=".ClientActivity" />
+        <activity android:name=".ServerActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
